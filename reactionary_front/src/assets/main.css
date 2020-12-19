@@ -1,0 +1,70 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 1.42857143;
+	color: white;
+	background-color: #253150;
+	margin: 0px;
+	padding: 00px;
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+}
+
+.navbar {
+	display: flex;
+	background-color: #3864a6;
+	color: white;
+	padding: 15px 10px;
+	text-align: end;
+	justify-content: space-between;
+}
+
+.nav-link {
+	margin: 0px 20px;
+	color: white;
+	text-decoration: none;
+	text-decoration-color: white;
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    grid-template: 'title title' 'form form';
+}
+
+.container-form {
+	display: grid;
+	grid-template: '.' '.' '.';
+	justify-content: center;
+}
+
+.title {
+	grid-area: title;
+	text-align: center;
+}
+
+.formulaire {
+    grid-area: form;
+}
+
+input {
+	background-color: #212930;
+	border: none;
+	padding: 15px 10px;
+	width: 250px;
+	color: white;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+::placeholder {
+	color: white		
+}
+
+.mainButton {
+	background-color: #3864a6;
+	width: fit-content;
+	place-self: center;
+	padding-left: 30px;
+	padding-right: 30px;
+}
