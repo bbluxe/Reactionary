@@ -10,6 +10,8 @@ const socketConstants = {
   GET_ALL_MESSAGE_SUCCESS: 'GET_ALL_MESSAGE_SUCCESS',
 
   GET_USERS_IN_ROOM_SUCCESS: 'GET_USERS_IN_ROOM_SUCCESS',
+
+  LEAVE_LOBBY_SUCCESS: 'LEAVE_LOBBY_SUCCESS',
 };
 
 export default socketConstants;

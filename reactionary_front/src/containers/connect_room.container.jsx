@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import socketAction from '../actions/socket.action';
 import FormConnectRoom from '../components/form_connect_room.component';
 
@@ -33,11 +33,11 @@ const ConnectRoom = ({
         <h1 className="title">Créer / Rejoindre une salle</h1>
         <div className="selectRoom">
           {rooms.map((element) => (
-            <p className="room-element" key={element}>
+            <Link to={`/room/${element}`} className="room-element nav-link" key={element} onClick={() => connectToRoom(element)}>
               <b>
                 {element}
               </b>
-            </p>
+            </Link>
           ))}
         </div>
         <FormConnectRoom className="inputRoom" handleSubmit={(values) => connectToRoom(values)} />

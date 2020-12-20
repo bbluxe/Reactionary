@@ -32,7 +32,7 @@ function connectToRoom(idRoom) {
     socket.emit('join', {
       room: idRoom, pseudo, idUser, date: new Date().toISOString(),
     });
-    socket.once('joined', () => {
+    socket.on('joined', () => {
       dispatch(success(idRoom));
     });
   };
@@ -55,7 +55,7 @@ function getUsersInRoom() {
   }
 
   return (dispatch) => {
-    socket.once('users', (data) => {
+    socket.on('users', (data) => {
       dispatch(success(data));
     });
   };
@@ -73,10 +73,24 @@ function sendMessage(values) {
   };
 }
 
+function leaveLobby(room) {
+  function success() {
+    return { type: socketConstants.LEAVE_LOBBY_SUCCESS };
+  }
+
+  return (dispatch) => {
+    socket.emit('leave', {
+      idUser, room, pseudo,
+    });
+    dispatch(success());
+  };
+}
+
 export default {
   getRooms,
   connectToRoom,
   getMessage,
   getUsersInRoom,
   sendMessage,
+  leaveLobby,
 };

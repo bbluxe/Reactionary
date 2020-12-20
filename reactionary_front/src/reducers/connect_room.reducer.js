@@ -11,6 +11,10 @@ function connectRoom(state = {}, action) {
       return {
         connectedToRoom: false,
       };
+    case socketConstants.LEAVE_LOBBY_SUCCESS:
+      return {
+        state,
+      };
     default:
       return state;
   }
