@@ -19,7 +19,7 @@ const FormConnectRoom = (props) => {
   }
 
   return (
-    <form className="container-form" onSubmit={(e) => handleSubmit(e)}>
+    <form className="container-connect-form" onSubmit={(e) => handleSubmit(e)}>
       <input type="text" placeholder="Salle" value={room} onChange={handleChange} />
       <input type="submit" value="Valider" className="mainButton" />
     </form>
