@@ -13,7 +13,8 @@ const FormMessage = (props) => {
   function handleSubmit(e) {
     e.preventDefault();
     if (message) {
-      props.handleSubmit({ id, message });
+      props.handleSubmit({ id, message, date: new Date().toISOString() });
+      setMessage('');
     }
   }
 

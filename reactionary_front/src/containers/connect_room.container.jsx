@@ -10,6 +10,7 @@ const mapStateToProps = (state) => {
   const { connectedToRoom, room } = state.connectRoom;
   return { connectedToRoom, room };
 };
+
 const mapDispatchToProps = (dispatch) => ({
   connectToRoom: (values) => dispatch(socketAction.connectToRoom(values)),
 });
