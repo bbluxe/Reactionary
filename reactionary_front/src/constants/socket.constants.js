@@ -6,6 +6,8 @@ const socketConstants = {
   SEND_MESSAGE_SUCCESS: 'SEND_MESSAGE_SUCCESS',
 
   GET_ALL_MESSAGE_SUCCESS: 'GET_ALL_MESSAGE_SUCCESS',
+
+  GET_USERS_IN_ROOM_SUCCESS: 'GET_USERS_IN_ROOM_SUCCESS',
 };
 
 export default socketConstants;

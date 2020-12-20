@@ -7,6 +7,7 @@ import register from '../reducers/register.reducer';
 import connectRoom from '../reducers/connect_room.reducer';
 import sendMessage from '../reducers/send_message.reducer';
 import getMessage from '../reducers/get_message.reducer';
+import getUsers from '../reducers/get_users.reducer';
 
 const loggerMiddleware = createLogger();
 
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   connectRoom,
   sendMessage,
   getMessage,
+  getUsers,
 });
 
 const store = createStore(

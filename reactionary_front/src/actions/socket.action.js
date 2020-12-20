@@ -16,8 +16,9 @@ function connectToRoom(idRoom) {
 
   return (dispatch) => {
     dispatch(request({ idRoom }));
-    console.log(socket);
-    socket.emit('join', { room: idRoom, pseudo, idUser });
+    socket.emit('join', {
+      room: idRoom, pseudo, idUser, date: new Date().toISOString(),
+    });
     socket.once('joined', () => {
       dispatch(success(idRoom));
     });
@@ -35,18 +36,33 @@ function getMessage() {
   };
 }
 
-function sendMessage(room, message) {
+function getUsersInRoom() {
+  function success(data) {
+    return { type: socketConstants.GET_USERS_IN_ROOM_SUCCESS, data };
+  }
+
+  return (dispatch) => {
+    socket.once('users', (data) => {
+      dispatch(success(data));
+    });
+  };
+}
+
+function sendMessage(values) {
   function success() {
     return { type: socketConstants.SEND_MESSAGE_SUCCESS };
   }
   return (dispatch) => {
-    socket.emit('message', { room, pseudo, message });
+    socket.emit('message', {
+      room: values.id, pseudo, message: values.message, date: values.date,
+    });
     dispatch(success());
   };
 }
 
 export default {
   connectToRoom,
-  sendMessage,
   getMessage,
+  getUsersInRoom,
+  sendMessage,
 };
