@@ -29,7 +29,7 @@ body {
 .container {
     display: grid;
     justify-content: center;
-    grid-template: 'title title' 'form form';
+    grid-template: 'title' '.';
 }
 
 .container-form {
@@ -38,13 +38,14 @@ body {
 	justify-content: center;
 }
 
+.container-connect-form {
+	display: flex;
+	flex-flow: column;
+}
+
 .title {
 	grid-area: title;
 	text-align: center;
-}
-
-.formulaire {
-    grid-area: form;
 }
 
 input {
@@ -75,6 +76,21 @@ input {
 	justify-content: space-evenly;
 }
 
+.connect-room-layout {
+	margin: 25px;
+	display: grid;
+	grid-template: 'title title' 'select inputRoom';
+	place-content: space-evenly;
+}
+
+.selectRoom {
+	grid-area: 'select';
+}
+
+.inputRoom {
+	grid-area: 'inputRoom';
+}
+
 .draw-container {
 	background-color: white;
 	padding: 15px;
@@ -88,4 +104,16 @@ input {
 	max-width: 400px;
 	padding: 15px;
 	margin-bottom: 5px;
+}
+
+.room-element {
+	background-color: #415280;
+	padding: 10px 25px;
+	flex-wrap: wrap;
+	width: 250px;
+	justify-content: center;
+}
+
+.connect-room-layout input {
+    height: fit-content;
 }

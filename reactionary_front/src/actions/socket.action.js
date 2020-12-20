@@ -6,6 +6,19 @@ const pseudo = localStorage.getItem('pseudo');
 const idUser = localStorage.getItem('idUser');
 const socket = io('ws://localhost:3000');
 
+function getRooms() {
+  function success(data) {
+    return { type: socketConstants.GET_ALL_ROOM_SUCCESS, data };
+  }
+
+  return (dispatch) => {
+    socket.emit('getRooms', '');
+    socket.on('rooms', (data) => {
+      dispatch(success(data));
+    });
+  };
+}
+
 function connectToRoom(idRoom) {
   function request(id) {
     return { type: socketConstants.CONNECT_TO_ROOM_REQUEST, id };
@@ -61,6 +74,7 @@ function sendMessage(values) {
 }
 
 export default {
+  getRooms,
   connectToRoom,
   getMessage,
   getUsersInRoom,
