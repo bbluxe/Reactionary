@@ -22,6 +22,7 @@ function login(params) {
       (user) => {
         dispatch(success(user));
         localStorage.setItem('idUser', user.id);
+        localStorage.setItem('pseudo', user.pseudo);
         toast.info('Connexion réussie');
       },
       (error) => {

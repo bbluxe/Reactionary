@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const Login = ({ login, isLogged }) => (
   isLogged
-    ? <Redirect to="/" />
+    ? <Redirect to="/connectRoom" />
     : (
       <>
         <NavBarNotLogged />

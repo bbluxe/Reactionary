@@ -4,11 +4,11 @@ function login(state = {}, action) {
   switch (action.type) {
     case userConstants.LOGIN_SUCCESS:
       return {
-        loggingIn: true,
+        isLogged: true,
       };
     case userConstants.LOGIN_FAILURE:
       return {
-        loggingIn: false,
+        isLogged: false,
       };
     default:
       return state;
