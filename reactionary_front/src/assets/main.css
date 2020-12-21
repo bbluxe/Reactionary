@@ -1,0 +1,119 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 1.42857143;
+	color: white;
+	background-color: #253150;
+	margin: 0px;
+	padding: 00px;
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+}
+
+.navbar {
+	display: flex;
+	background-color: #3864a6;
+	color: white;
+	padding: 15px 10px;
+	text-align: end;
+	justify-content: space-between;
+}
+
+.nav-link {
+	margin: 0px 20px;
+	color: white;
+	text-decoration: none;
+	text-decoration-color: white;
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    grid-template: 'title' '.';
+}
+
+.container-form {
+	display: grid;
+	grid-template: '.' '.' '.';
+	justify-content: center;
+}
+
+.container-connect-form {
+	display: flex;
+	flex-flow: column;
+}
+
+.title {
+	grid-area: title;
+	text-align: center;
+}
+
+input {
+	background-color: #212930;
+	border: none;
+	padding: 15px 10px;
+	width: 250px;
+	color: white;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+::placeholder {
+	color: white		
+}
+
+.mainButton {
+	background-color: #3864a6;
+	width: fit-content;
+	place-self: center;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.room-layout {
+	margin: 25px;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.connect-room-layout {
+	margin: 25px;
+	display: grid;
+	grid-template: 'title title' 'select inputRoom';
+	place-content: space-evenly;
+}
+
+.selectRoom {
+	grid-area: 'select';
+}
+
+.inputRoom {
+	grid-area: 'inputRoom';
+}
+
+.draw-container {
+	background-color: white;
+	padding: 15px;
+	min-width: 800px;
+	min-height: 600px;
+}
+
+.room-container {
+	background-color: #212930;
+	min-width: 200px;
+	max-width: 400px;
+	padding: 15px;
+	margin-bottom: 5px;
+}
+
+.room-element {
+	background-color: #415280;
+	padding: 10px 25px;
+	flex-wrap: wrap;
+	width: 250px;
+	justify-content: center;
+}
+
+.connect-room-layout input {
+    height: fit-content;
+}
