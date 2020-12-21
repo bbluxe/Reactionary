@@ -86,6 +86,29 @@ function leaveLobby(room) {
   };
 }
 
+function sendDraw(data) {
+  function success() {
+    return { type: socketConstants.SEND_DRAW_SUCCESS };
+  }
+
+  return (dispatch) => {
+    socket.emit('drawing', data);
+    dispatch(success());
+  };
+}
+
+function getDraw() {
+  function success(data) {
+    return { type: socketConstants.GET_DRAW_SUCCESS, data };
+  }
+
+  return (dispatch) => {
+    socket.on('drawing', (data) => {
+      dispatch(success(data));
+    });
+  };
+}
+
 export default {
   getRooms,
   connectToRoom,
@@ -93,4 +116,6 @@ export default {
   getUsersInRoom,
   sendMessage,
   leaveLobby,
+  sendDraw,
+  getDraw,
 };

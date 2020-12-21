@@ -5,11 +5,13 @@ import PropTypes from 'prop-types';
 import socketAction from '../actions/socket.action';
 import FormMessage from '../components/form_message.component';
 import NavBarRoom from '../components/navbar_room.component';
+import Draw from '../components/draw.component';
 
 const mapStateToProps = (state) => {
   const { messages } = state.getMessage;
   const { users } = state.getUsers;
-  return { messages, users };
+  const { drawing } = state.getDraw;
+  return { messages, users, drawing };
 };
 
 const mapDispatchToProps = (dispatch) => ({
@@ -17,10 +19,12 @@ const mapDispatchToProps = (dispatch) => ({
   getMessage: () => dispatch(socketAction.getMessage()),
   getUsersInRoom: () => dispatch(socketAction.getUsersInRoom()),
   leaveLobby: (id) => dispatch(socketAction.leaveLobby(id)),
+  sendDraw: (data) => dispatch(socketAction.sendDraw(data)),
+  getDraw: () => dispatch(socketAction.getDraw()),
 });
 
 const Room = ({
-  sendMessage, getMessage, getUsersInRoom, leaveLobby, messages, users,
+  sendMessage, getMessage, getUsersInRoom, leaveLobby, sendDraw, getDraw, messages, users, drawing,
 }) => {
   useEffect(() => {
     getMessage();
@@ -29,6 +33,10 @@ const Room = ({
   useEffect(() => {
     getUsersInRoom();
   }, [users.length]);
+
+  useEffect(() => {
+    getDraw();
+  }, [drawing]);
 
   return (
     <>
@@ -47,9 +55,7 @@ const Room = ({
           </div>
         </div>
         <div className="room-layout-mid">
-          <div className="draw-container">
-            <p>Draw</p>
-          </div>
+          <Draw handleChange={(values) => sendDraw(values)} getDraw={getDraw()} drawing={drawing} />
         </div>
         <div className="room-layout-right">
           <div className="room-container">
@@ -76,8 +82,11 @@ Room.propTypes = {
   getMessage: PropTypes.func,
   getUsersInRoom: PropTypes.func,
   leaveLobby: PropTypes.func,
+  sendDraw: PropTypes.func,
+  getDraw: PropTypes.func,
   messages: PropTypes.arrayOf(PropTypes.object),
   users: PropTypes.arrayOf(PropTypes.object),
+  drawing: PropTypes.string,
 };
 
 Room.defaultProps = {
@@ -85,8 +94,11 @@ Room.defaultProps = {
   getMessage: () => {},
   getUsersInRoom: () => {},
   leaveLobby: () => {},
+  sendDraw: () => {},
+  getDraw: () => {},
   messages: [],
   users: [],
+  drawing: '',
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Room);
