@@ -9,6 +9,8 @@ import sendMessage from '../reducers/send_message.reducer';
 import getMessage from '../reducers/get_message.reducer';
 import getUsers from '../reducers/get_users.reducer';
 import getRooms from '../reducers/get_rooms.reducer';
+import sendDraw from '../reducers/send_draw.reducer';
+import getDraw from '../reducers/get_draw.reducer';
 
 const loggerMiddleware = createLogger();
 
@@ -20,6 +22,8 @@ const rootReducer = combineReducers({
   getMessage,
   getUsers,
   getRooms,
+  sendDraw,
+  getDraw,
 });
 
 const store = createStore(
