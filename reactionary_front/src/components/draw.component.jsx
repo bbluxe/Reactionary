@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 
 const Draw = (props) => {
-  const [width] = useState(1000);
-  const [height] = useState(800);
+  const [width] = useState(800);
+  const [height] = useState(600);
   const [drawing, setDrawing] = useState('');
   const { id } = useParams();
 

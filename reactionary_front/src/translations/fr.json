@@ -1,0 +1,20 @@
+{
+  "pseudo": "Pseudo",
+  "password": "Mot de passe",
+  "repeat": "Répéter le mot de passe",
+  "register": "S'inscrire",
+  "registration": "Inscription",
+  "login": "Connexion",
+  "log": "Se connecter",
+  "create-join": "Créer / Rejoindre une salle",
+  "access": "Accès interdit",
+  "nopage": "Page inexistante",
+  "users": "Utilisateurs connectés: ",
+  "enter-room": "Veuillez entrer une salle",
+  "room": "Salle",
+  "validate": "Valider",
+  "diff-pwd": "Mot de passe diff",
+  "leave": "Quitter le salon",
+  "valid-login": "Connexion réussie",
+  "valid-register": "Inscription réussie"
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslate } from 'react-polyglot';
 import PropTypes from 'prop-types';
 
 const FormRegister = (props) => {
@@ -17,12 +18,13 @@ const FormRegister = (props) => {
     e.preventDefault();
     props.handleSubmit({ pseudo, password });
   }
+  const t = useTranslate();
 
   return (
     <form className="container-form" onSubmit={(e) => handleSubmit(e)}>
       <input type="text" placeholder="Pseudo" value={pseudo} onChange={handlePseudoChange} />
-      <input type="password" placeholder="Mot de passe" value={password} onChange={handlePasswordChange} />
-      <input type="submit" value="Se connecter" className="mainButton" />
+      <input type="password" placeholder={t('password')} value={password} onChange={handlePasswordChange} />
+      <input type="submit" value={t('log')} className="mainButton" />
     </form>
   );
 };

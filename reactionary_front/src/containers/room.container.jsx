@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { useTranslate } from 'react-polyglot';
 import PropTypes from 'prop-types';
 
 import socketAction from '../actions/socket.action';
@@ -38,13 +39,15 @@ const Room = ({
     getDraw();
   }, [drawing]);
 
+  const t = useTranslate();
+
   return (
     <>
       <NavBarRoom leaveLobby={(values) => leaveLobby(values)} />
       <div className="room-layout">
         <div className="room-layout-left">
           <div className="room-container">
-            <h4>Utilisateurs connectés: </h4>
+            <h4>{t('users')}</h4>
             {users.map((element) => (
               <p key={element.idUser}>
                 <b>

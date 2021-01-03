@@ -23,7 +23,7 @@ function login(params) {
         dispatch(success(user));
         localStorage.setItem('idUser', user.id);
         localStorage.setItem('pseudo', user.pseudo);
-        toast.info('Connexion réussie');
+        toast.info('Login success');
       },
       (error) => {
         dispatch(failure(error.toString()));
@@ -43,13 +43,12 @@ function register(params) {
   function failure(error) {
     return { type: userConstants.REGISTER_FAILURE, error };
   }
-
   return (dispatch) => {
     dispatch(request({ pseudo: params.pseudo }));
     userService.register(params.pseudo, params.password).then(
       (user) => {
         dispatch(success(user));
-        toast.info('Inscription réussie');
+        toast.info('Register success');
       },
       (error) => {
         dispatch(failure(error.toString()));

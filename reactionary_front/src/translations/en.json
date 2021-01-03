@@ -1,0 +1,20 @@
+{
+  "pseudo": "Pseudo",
+  "password": "Password",
+  "repeat": "Repeat password",
+  "register": "Sign up",
+  "registration": "Register",
+  "login": "Login",
+  "log": "Sign in",
+  "create-join": "Create / Join a room",
+  "access": "Access denied",
+  "nopage": "Non-existent page",
+  "users": "Connected users: ",
+  "enter-room": "Please enter a room",
+  "room": "Room",
+  "validate": "Confirm",
+  "diff-pwd": "Different password",
+  "leave": "Leave room",
+  "valid-login": "Login succeed",
+  "valid-register": "Register succeed"
+}

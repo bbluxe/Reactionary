@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { useTranslate } from 'react-polyglot';
 import PropTypes from 'prop-types';
 
 import { Redirect, Link } from 'react-router-dom';
@@ -23,14 +24,14 @@ const ConnectRoom = ({
   useEffect(() => {
     getRooms();
   }, [rooms.length]);
-
+  const t = useTranslate();
   return (
     <>
       {connectedToRoom && (
       <Redirect to={`/room/${room}`} />
       )}
       <div className="connect-room-layout">
-        <h1 className="title">Créer / Rejoindre une salle</h1>
+        <h1 className="title">{t('create-join')}</h1>
         <div className="selectRoom">
           {rooms.map((element) => (
             <Link to={`/room/${element}`} className="room-element nav-link" key={element} onClick={() => connectToRoom(element)}>
