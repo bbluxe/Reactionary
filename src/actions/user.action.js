@@ -23,7 +23,7 @@ function login(params) {
         dispatch(success(user));
         localStorage.setItem('idUser', user.id);
         localStorage.setItem('pseudo', user.pseudo);
-        toast.info('Login success');
+        window.location.reload();
       },
       (error) => {
         dispatch(failure(error.toString()));
@@ -48,7 +48,11 @@ function register(params) {
     userService.register(params.pseudo, params.password).then(
       (user) => {
         dispatch(success(user));
-        toast.info('Register success');
+        if (params.lang === 'en') {
+          toast.info('Register success');
+        } else {
+          toast.info('Inscription réussie');
+        }
       },
       (error) => {
         dispatch(failure(error.toString()));

@@ -4,7 +4,7 @@ import socketConstants from '../constants/socket.constants';
 
 const pseudo = localStorage.getItem('pseudo');
 const idUser = localStorage.getItem('idUser');
-const socket = io('ws://localhost:3000');
+const socket = io('ws://reactionnary-back.herokuapp.com');
 
 function getRooms() {
   function success(data) {

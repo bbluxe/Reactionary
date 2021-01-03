@@ -1,4 +1,4 @@
-const URL = 'http://localhost:3000/users/';
+const URL = 'https://reactionnary-back.herokuapp.com/users/';
 
 function handleResponse(response) {
   return response.text().then((text) => {
