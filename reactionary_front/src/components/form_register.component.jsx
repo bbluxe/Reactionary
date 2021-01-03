@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
+import { useTranslate } from 'react-polyglot';
 
 const FormRegister = (props) => {
+  const t = useTranslate();
   const [pseudo, setPseudo] = useState('');
   const [password, setPassword] = useState('');
   const [checkPassword, setCheckPassword] = useState('');
@@ -22,7 +24,7 @@ const FormRegister = (props) => {
   function handleSubmit(e) {
     e.preventDefault();
     if (checkPassword !== password) {
-      toast.error('Mot de passe diff');
+      toast.error(t('diff-pwd'));
     } else {
       props.handleSubmit({ pseudo, password });
     }
@@ -30,10 +32,10 @@ const FormRegister = (props) => {
 
   return (
     <form className="container-form" onSubmit={(e) => handleSubmit(e)}>
-      <input type="text" placeholder="Pseudo" value={pseudo} onChange={handlePseudoChange} />
-      <input type="password" placeholder="Mot de passe" value={password} onChange={handlePasswordChange} />
-      <input type="password" placeholder="Répéter le mot de passe" value={checkPassword} onChange={handleCheckPasswordChange} />
-      <input type="submit" value="S'inscrire" className="mainButton" />
+      <input type="text" placeholder={t('pseudo')} value={pseudo} onChange={handlePseudoChange} />
+      <input type="password" placeholder={t('password')} value={password} onChange={handlePasswordChange} />
+      <input type="password" placeholder={t('repeat')} value={checkPassword} onChange={handleCheckPasswordChange} />
+      <input type="submit" value={t('register')} className="mainButton" />
     </form>
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
+import { useTranslate } from 'react-polyglot';
 import PropTypes from 'prop-types';
 import userAction from '../actions/user.action';
 
@@ -16,19 +17,22 @@ const mapDispatchToProps = (dispatch) => ({
   register: (values) => dispatch(userAction.register(values)),
 });
 
-const Register = ({ register, isRegister }) => (
-  isRegister
-    ? <Redirect to="/login" />
-    : (
-      <>
-        <NavBarNotLogged />
-        <div className="container">
-          <h1 className="title">Inscription</h1>
-          <FormRegister handleSubmit={(values) => register(values)} />
-        </div>
-      </>
-    )
-);
+const Register = ({ register, isRegister }) => {
+  const t = useTranslate();
+  return (
+    isRegister
+      ? <Redirect to="/login" />
+      : (
+        <>
+          <NavBarNotLogged />
+          <div className="container">
+            <h1 className="title">{t('registration')}</h1>
+            <FormRegister handleSubmit={(values) => register(values)} />
+          </div>
+        </>
+      )
+  );
+};
 
 Register.propTypes = {
   register: PropTypes.func,
